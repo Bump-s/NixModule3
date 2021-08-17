@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">SignUp</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form id="signupForm" method="post" class="form-horizontal" action="">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="email">Email</label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" id="email" name="email" placeholder="Email" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="password">Password</label>
+                                <div class="col-sm-5">
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="confirm_password">Confirm password</label>
+                                <div class="col-sm-5">
+                                    <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm password" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-9 col-sm-offset-4">
+                                    <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Sign up</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $.validator.setDefaults({
+            submitHandler: function () {
+                onClick = location.href = "HomePage.html";
+            }
+        });
+        $(document).ready(function () {
+            $("#signupForm").validate({
+                rules: {
+                    password: {
+                        required: true,
+                        minlength: 5
+                    },
+                    confirm_password: {
+                        required: true,
+                        minlength: 5,
+                        equalTo: "#password"
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                },
+                messages: {
+                    password: {
+                        required: "Please provide a password",
+                        minlength: "Your password must be at least 5 characters long"
+                    },
+                    confirm_password: {
+                        required: "Please provide a password",
+                        minlength: "Your password must be at least 5 characters long",
+                        equalTo: "Please enter the same password as above"
+                    },
+                    email: "Please enter a valid email address",
+                },
+            });
+        });
+    </script>
+</body>
+</html>

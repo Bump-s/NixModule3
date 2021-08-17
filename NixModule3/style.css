@@ -1,0 +1,18 @@
+﻿section
+{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.carousel-control-prev-icon
+{
+    background-image: url(img/left-arrow.svg)
+}
+.carousel-control-next-icon
+{
+    background-image: url(img/right-arrow.svg)
+}
+.footer {
+    height: 30px;
+    background: #808080;
+    position: relative;
+}
